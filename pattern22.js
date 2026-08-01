@@ -1,21 +1,51 @@
-let lastNumBackward = 0;
-let lastNumBackward1 = 0;
-let lastNumBackward2 = 0;
-let n = 5;
+let rightHalfLimit = 0;
+let rightHalfLastValue = 0;
+let rightHalfPreviousLimit = 0;
+let leftHalfLastValue = 0;
+let leftHalfPreviousLimit = 0;
 
-for (let row = 0; row < n; row++) {
-    let str = "";
+let size = 5;
 
-    for (let currentNum = n; currentNum > 0; currentNum--) {
-        if (currentNum <= lastNumBackward2) {
-            str += (currentNum + lastNumBackward2  -currentNum + 1) + " ";
-            lastNumBackward1 = currentNum + lastNumBackward2/* + row - 1*/;
+for (let row = 0; row < size; row++) {
+    let descendingPart = "";
+let ascendingPart = "";
+    for (let currentValue = size; currentValue > 0; currentValue--) {
+        if (currentValue <= rightHalfPreviousLimit) {
+            descendingPart += (rightHalfPreviousLimit + 1) + " ";
+            if (currentValue !==1 ){
+
+ascendingPart = (rightHalfPreviousLimit + 1) + " "+ascendingPart;
+} 
+            rightHalfLastValue = currentValue + rightHalfPreviousLimit;
+            
         } else {
-            str += currentNum + " ";
-            lastNumBackward1 = currentNum;
+            descendingPart += currentValue + " ";
+            if ( currentValue!==1 ){
+
+ascendingPart = currentValue + " "+ascendingPart;
+} 
+            rightHalfLastValue = currentValue;
         }
     }
 
-    console.log(str.trim());
-    lastNumBackward2 = lastNumBackward1;
+    rightHalfPreviousLimit = rightHalfLastValue;
+
+    
+
+    /* for (let currentValue = 2; currentValue <= size; currentValue++) {
+        if (size - currentValue <= leftHalfPreviousLimit) {
+            ascendingPart += (leftHalfPreviousLimit + 1) + " ";
+            leftHalfLastValue = currentValue + leftHalfPreviousLimit;
+        } else {
+            ascendingPart += currentValue + " ";
+
+            if (currentValue === 2) {
+                leftHalfLastValue = currentValue;
+            }
+        }
+    } */
+
+    console.log(descendingPart.trim() + " " +ascendingPart.trim());
+
+    leftHalfPreviousLimit = leftHalfLastValue;
 }
