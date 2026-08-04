@@ -1,3 +1,5 @@
+//Took 0.63 mins
+// Reused the previous solution.
 let n=5
 let str=""
 const alphabets = [
@@ -6,7 +8,7 @@ const alphabets = [
   "U", "V", "W", "X", "Y", "Z"
 ];
 
-for (let i = n; i >= 1; i--){
+for (let i = 1; i <= n; i++){
 for (let j = 1; j <= i; j++){
   str+=alphabets[j-1]
 } 
