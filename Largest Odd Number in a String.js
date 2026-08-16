@@ -12,7 +12,7 @@ var largestOddNumber = function (num) {
     for (let i = 0; i <= oddIndex; i++) {
         desiredNum += num[i];
     }
-    return oddIndex !== -1 ? desiredNum : "";
+    return desiredNum;
 };
 
 console.log(largestOddNumber(num));
