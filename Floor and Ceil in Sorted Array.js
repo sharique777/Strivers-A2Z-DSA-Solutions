@@ -20,9 +20,9 @@ function getFloorCeil(numbers, target) {
     }
   }
 
-  return (floorValue??-1) + " " + (ceilValue??-1);
+  return floorValue + " " + ceilValue;
 }
 
 const numbers = [2, 4, 6, 8];
-const targetValue = 7;
+const targetValue = 1;
 console.log(getFloorCeil(numbers, targetValue));
